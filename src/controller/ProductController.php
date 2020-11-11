@@ -65,5 +65,10 @@ class ProductController
 
     public function search()
     {
+        if ($_SERVER['REQUEST_METHOD'] == "POST") {
+            $search = "%" . $_REQUEST['search'] . "%";
+            $input = $this->productController->search($search);
+            include_once "src/view/showInfo.php";
+        }
     }
 }
